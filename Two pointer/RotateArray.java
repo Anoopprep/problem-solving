@@ -27,10 +27,18 @@ public class RotateArray {
             end--;
         }
     }
-    public void rotate(int[] nums, int k) {
+    
+    public void rightRotate(int[] nums, int k) {
         k = k % nums.length;
         reverse(nums, 0, nums.length - 1);
         reverse(nums, 0, k - 1);
         reverse(nums, k, nums.length - 1);
+    }
+
+    public void leftRotate(int[] nums, int k) {
+        k = k % nums.length;
+        reverse(nums, 0, nums.length - 1);
+        reverse(nums, 0, nums.length - k - 1); 
+        reverse(nums, nums.length - k, nums.length - 1);
     }
 }
