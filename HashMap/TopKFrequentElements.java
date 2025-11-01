@@ -7,6 +7,8 @@
  * Algorithm:
  * Find the frequency using hashmap
  * Find k max elements by finding max and removing that max from map to compute new max for next iteration.
+ *
+ * TODO: Check PriorityQueue/Heap implementation.
  */
 
 import java.util.*;
