@@ -3,6 +3,11 @@
  * Given a string s, find the length of the longest substring without duplicate characters.
  * Input: s = "abcabcbb", Output: 3, Explanation: The answer is "abc", with the length of 3. Note that "bca" and "cab" are also correct answers.
  * Input: s = "bbbbb", Output: 1, Explanation: The answer is "b", with the length of 1.
+ *
+ * Algorithm:
+ * Take a set, keep adding unqiue elements to set, whenever you encounter an element which is already in the set, 
+ * get the size of the current window and start minimise the window.
+ * You should minimise the window in such a way that, the new window starts from +1 the first occurence of repeated element.
  */
 
 import java.util.HashSet;
