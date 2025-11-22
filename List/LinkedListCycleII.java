@@ -10,6 +10,9 @@
 
 package List;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class LinkedListCycleII {
     public class ListNode {
         int val;
@@ -17,6 +20,16 @@ public class LinkedListCycleII {
         ListNode() {}
         ListNode(int val) { this.val = val; }
         ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    }
+
+    public ListNode detectCycleSetApproach(ListNode head) {
+        Set<ListNode> s = new HashSet<ListNode>();
+        while(head != null) {
+            if(s.contains(head)) return head;
+            else s.add(head);
+            head = head.next;
+        }
+        return null;
     }
 
     public ListNode detectCycle(ListNode head) {
