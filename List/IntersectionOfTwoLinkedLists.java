@@ -9,6 +9,11 @@
  * Eventually, either:
  * 1️⃣ They meet — intersection found
  * 2️⃣ Both end up at null — no intersection
+ * Why it works?
+ * Because:
+ * Pointer A travels: lenA + lenB
+ * Pointer B travels: lenB + lenA
+ * So they cover equal distance and meet at intersection node.
  */
 
 package List;
