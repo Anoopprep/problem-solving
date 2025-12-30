@@ -20,6 +20,7 @@ public class BinaryTreeRightSideView {
             for (int i = 0; i < size; i++) {
                 TreeNode node = q.poll();
                 if (i == size - 1) res.add(node.val);
+                // if (i == 0) res.add(node.val); for left side view
                 if (node.left != null) q.add(node.left);
                 if (node.right != null) q.add(node.right);
             }
