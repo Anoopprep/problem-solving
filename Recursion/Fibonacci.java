@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Fibonacci {
-    // Iterative approach
+    // Iterative approach: Time Complexity: O(n)
     public int fibIterative(int n) {
         if(n == 0) return 0;
 
@@ -21,7 +21,7 @@ public class Fibonacci {
         return fibb[i - 1];
     }
 
-    // Recursive approach: Takes too much time, computes redundantly for each branch
+    // Recursive approach: Takes too much time, computes redundantly for each branch: Time Complexity: O(2^n)
     public int fibRecursive(int n) {
         if(n == 0) return 0;
         if(n == 1) return 1;
@@ -29,7 +29,7 @@ public class Fibonacci {
         return fib(n-1) + fib(n-2);
     }
 
-    // Recursive efficient approach
+    // Recursive efficient approach: Time Complexity: O(n)
     Map<Integer, Integer> map = new HashMap<Integer, Integer>();
     public int fib(int n) {
         if(n == 0) return 0;
