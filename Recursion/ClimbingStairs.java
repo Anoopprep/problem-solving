@@ -28,4 +28,28 @@ public class ClimbingStairs {
 
         return left + right;
     }
+
+    int[] dp;
+    public int climbStairsDP(int n) {
+        dp = new int[n + 1];
+        return helper(n, 0);
+    }
+
+    public int helper(int target, int stepsTaken) {
+        if(stepsTaken == target) {
+            return 1;
+        }
+
+        if(stepsTaken > target) {
+            return 0;
+        }
+
+        if (dp[stepsTaken] != 0) return dp[stepsTaken];
+
+        int one = helper(target, stepsTaken + 1);
+        int two = helper(target, stepsTaken + 2);
+        dp[stepsTaken] = one + two;
+
+        return dp[stepsTaken];
+    }
 }
