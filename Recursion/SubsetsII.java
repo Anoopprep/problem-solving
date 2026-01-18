@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Set;
 
 public class SubsetsII {
-    public List<List<Integer>> subsetsWithDup(int[] nums) {
+    public List<List<Integer>> subsetsWithNoDuplicates(int[] nums) {
         List<List<Integer>> result = new ArrayList<List<Integer>>();
         List<Integer> subset = new ArrayList<Integer>();
         Set<String> set = new HashSet<String>();
@@ -42,5 +42,29 @@ public class SubsetsII {
         findSubset(nums, i+1, subset, result, set);
         subset.remove(subset.size() - 1);
         findSubset(nums, i+1, subset, result, set);
+    }
+
+    public List<List<Integer>> subsetsWithNoDuplicatesEfficient(int[] nums) {
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        List<Integer> subset = new ArrayList<Integer>();
+        Arrays.sort(nums);
+
+        findSubseEfficientt(nums, 0, subset, result);
+        return result;
+    }
+
+    void findSubseEfficientt(int[] nums, int i, List<Integer> subset, List<List<Integer>> result) {
+        if(i == nums.length) {
+            result.add(new ArrayList<Integer>(subset));
+            return;
+        }
+
+        subset.add(nums[i]);
+        findSubseEfficientt(nums, i+1, subset, result);
+        subset.remove(subset.size() - 1);
+
+        int idx = i+1;
+        while(idx < nums.length && nums[idx] == nums[i]) idx++;
+        findSubseEfficientt(nums, idx, subset, result);
     }
 }
