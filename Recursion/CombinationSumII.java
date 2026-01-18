@@ -42,4 +42,33 @@ public class CombinationSumII {
 
         return;
     }
+
+    public List<List<Integer>> combinationSum2Efficient(int[] candidates, int target) {
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        List<Integer> subset = new ArrayList<Integer>();
+        Arrays.sort(candidates);
+        getSumEfficient(candidates, target, subset, res, 0, 0);
+        return res;
+    }
+
+    public void getSumEfficient(int[] candidates, int target, List<Integer> subset, List<List<Integer>> res, int i, int sum) {
+        if(target == sum) {
+            res.add(new ArrayList<Integer>(subset));
+            return;
+        }
+
+        if(i == candidates.length || sum > target) {
+            return;
+        }
+
+        subset.add(candidates[i]);
+        getSumEfficient(candidates, target, subset, res, i+1, sum + candidates[i]);
+        subset.remove(subset.size() - 1);
+
+        int idx = i + 1;
+        while(idx < candidates.length && candidates[idx] == candidates[idx-1]) idx++;
+        getSumEfficient(candidates, target, subset, res, idx, sum);
+
+        return;
+    }
 }
