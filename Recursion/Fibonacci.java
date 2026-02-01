@@ -9,6 +9,14 @@ import java.util.Map;
  * Because at any point of time, the maximum number of function calls in the call stack would be n (height of the recursion tree).
  */
 
+/**
+ * Tabulation vs Memoization
+ * Tabulation is a bottom-up approach where we solve all related sub-problems first, typically by filling up a table, and then use the results to solve larger sub-problems.
+ * Memoization is a top-down approach where we solve the problem by breaking it down into sub-problems and storing the results of these sub-problems to avoid redundant computations.
+ * Tabulation o(n) space can be optimized to o(1) space in some problems by only storing necessary previous states.
+ * Tabulation (nxm) space can be optimized to o(m) space in some problems by only storing the previous row/column, where m > n.
+ */
+
 public class Fibonacci {
     // Iterative approach: Time Complexity: O(n)
     public int fibIterative(int n) {
@@ -44,5 +52,22 @@ public class Fibonacci {
         int res = fib(n-1) + fib(n-2);
         map.put(n, res);
         return res;
+    }
+
+    // Most efficient approach: Time Complexity: O(n), space complexity: O(1)
+    // This is table filling approach where we only keep track of last two computed values
+    public int fibMostEfficient(int n) {
+        int first = 0, second = 1, current = 0;
+
+        if(n == 0) return first;
+        if(n == 1) return second;
+
+        for(int i = 2; i <= n; i++) {
+            current = first + second;
+            first = second;
+            second = current;
+        }
+
+        return current;
     }
 }
