@@ -3,6 +3,12 @@ package Recursion;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Space complexity: O(n) for iterative and O(n) for recursive with memoization
+ * Why O(n) space for recursive with memoization?
+ * Because at any point of time, the maximum number of function calls in the call stack would be n (height of the recursion tree).
+ */
+
 public class Fibonacci {
     // Iterative approach: Time Complexity: O(n)
     public int fibIterative(int n) {
