@@ -9,6 +9,9 @@
  *  
  *  Time Complexity: O(4^(N*N)) in the worst case where N is the size of the maze.
  *  Space Complexity: O(N*N) for the visited matrix and recursion stack.
+ * 
+ * NOTE: Visited array here is not needed for backtracking, it's needed to avoid cycles in a same path since the rat can move in all 4 directions. 
+ * If we don't use visited array, we will end up in infinite loop.
  */
 
 package Recursion;
