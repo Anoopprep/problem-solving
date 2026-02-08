@@ -1,0 +1,13 @@
+DP MENTAL MODELS
+
+1. Brute force recursion
+  You pass down the result
+2. Memoization
+  Your recursive function should return “the answer for this state” not carry the answer-so-far (total, sum, etc.) downward. So at every step, compute the answer and return back.
+3. Tabulation
+  Eliminate recursion. Remember, 
+4. Tabulation vs Memoization
+ * Tabulation is a bottom-up approach where we solve all related sub-problems first, typically by filling up a table, and then use the results to solve larger sub-problems.
+ * Memoization is a top-down approach where we solve the problem by breaking it down into sub-problems and storing the results of these sub-problems to avoid redundant computations.
+ * Tabulation o(n) space can be optimized to o(1) space in some problems by only storing necessary previous states.
+ * Tabulation (nxm) space can be optimized to o(m) space in some problems by only storing the previous row/column, where m < n.
