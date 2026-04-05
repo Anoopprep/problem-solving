@@ -1,3 +1,9 @@
+/**
+ * Variant of same tree
+ * In same tree, we compare the left and right subtree of both trees. 
+ * In symmetric tree, we compare the left value with the right value of the same tree.
+ */
+
 package Trees;
 
 public class SymmetricTree {
