@@ -1,5 +1,8 @@
 /**
  * 543. Diameter of Binary Tree
+ * Variant of Depth of Binary Tree
+ * Same as depth, just add one more variable to keep track of maximum diameter.
+ * Diameter counts the edges, not the nodes. So, we return left + right instead of left + right + 1.
  */
 
 package Trees;
